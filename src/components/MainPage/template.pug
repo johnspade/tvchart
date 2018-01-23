@@ -1,0 +1,4 @@
+.container-fluid
+	.row(v-for='showsRow in chunk(shows, 4)')
+		.col.s3(v-for='show in showsRow')
+			show-card(:show='show')

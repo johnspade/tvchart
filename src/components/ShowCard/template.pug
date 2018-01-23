@@ -1,0 +1,12 @@
+div
+	p {{ show.name }}
+	.card.horizontal.show-card(:class="{ green: show.selected }")
+		.card-image
+			img(:src="'https://image.tmdb.org/t/p/w184' + show.poster_path")
+		.card-stacked
+			.card-content
+				.show-overview
+					p {{ show.overview }}
+			.card-action
+				.btn-flat(v-on:click="show.selected = !show.selected") Буду смотреть
+		
