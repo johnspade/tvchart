@@ -1,12 +1,9 @@
-div
-	p {{ show.name }}
-	.card.horizontal.show-card(:class="{ green: show.selected }")
-		.card-image
-			img(:src="'https://image.tmdb.org/t/p/w184' + show.poster_path")
-		.card-stacked
-			.card-content
-				.show-overview
-					p {{ show.overview }}
-			.card-action
-				.btn-flat(v-on:click="show.selected = !show.selected") Буду смотреть
+.wrapper(:class="{ green: show.selected }")
+	div
+		img(:src="'https://image.tmdb.org/t/p/w154' + show.poster_path")
+	div
+		.show-overview
+			a(:href="'https://www.themoviedb.org/tv/' + show.id" target="_blank")
+				h5 {{ show.name }}
+			p {{ show.overview }}
 		

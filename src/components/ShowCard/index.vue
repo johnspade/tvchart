@@ -1,12 +1,15 @@
 <template lang="pug" src="./template.pug" />
 <script scoped src="./script.js" />
 <style scoped>
-	.show-card {
-		height: 276px;
+	.wrapper {
+		display: grid;
+		grid-template-columns: 154px 154px;
+  		grid-gap: 10px;
 	}
 	.show-overview {
-		font-size: x-small;
-		height: 120px;
+		height: 231px;
+		font-size: small;
 		overflow-y: auto;
+		line-height: 1;
 	}
 </style>

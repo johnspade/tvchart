@@ -9,9 +9,13 @@ Vue.use(VueResource)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/:year/:month',
       name: 'MainPage',
       component: MainPage
+    },
+    {
+    	path: '/',
+    	redirect: '/' + (new Date()).getFullYear() + '/01'
     }
   ]
 })

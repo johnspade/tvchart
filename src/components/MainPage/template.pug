@@ -1,4 +1,17 @@
-.container-fluid
-	.row(v-for='showsRow in chunk(shows, 4)')
-		.col.s3(v-for='show in showsRow')
-			show-card(:show='show')
+div
+	nav.navbar.navbar-expand-lg.navbar-light.bg-light
+		router-link.navbar-brand(:to="'/'") TvChart
+		.collapse.navbar-collapse
+			ul.navbar-nav.mr-auto
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle#yearDropdown(role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#") Year
+					.dropdown-menu(aria-labelledby="yearDropdown")
+						router-link.dropdown-item(v-for="year in years" :to="'/' + year + '/' + $route.params.month" :key="year") {{ year }}
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle#monthDropdown(role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#") Month
+					.dropdown-menu(aria-labelledby="monthDropdown")
+						router-link.dropdown-item(v-for="(value, key) in months" :to="'/' + $route.params.year + '/' + key" :key="key") {{ value }}
+	.container-fluid
+		.row.shows-row(v-for="showsRow in chunks")
+			.col-md-3(v-for="show in showsRow")
+				show-card(:show="show" :key="show.id")
